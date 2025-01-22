@@ -1,0 +1,18 @@
+import express from "express"
+import postModel from "../models/postModel.js"
+import {getPosts, getPost, createPost,deletePost, uploadAuth,  featurePost }from "../controllers/postController.js"
+import { increaseVisit } from "../middlewares/increaseVisit.js"
+
+
+const router = express.Router()
+
+router.get("/upload-auth", uploadAuth)
+router.get("/all-posts", getPosts)
+router.get("/:slug", increaseVisit, getPost)
+router.post("/add-post", createPost)
+router.delete("/:id", deletePost)
+router.patch("/feature", featurePost)
+
+
+
+export default router

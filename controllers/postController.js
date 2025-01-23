@@ -173,7 +173,7 @@ export const  featurePost = async(req, res)=>{
         })
       }
 
-      const isFeatured = await postModel.isFeatured
+      const isFeatured = postModel.isFeatured
 
 
       const updatedPost = await postModel.findByIdAndUpdate(
@@ -199,14 +199,14 @@ export const  featurePost = async(req, res)=>{
 // );
 
 const imagekit = new ImageKit({
-    urlEndpoint: "https://ik.imagekit.io/lhqk4dwpb/" || process.env.IMAGEKIT_URL_ENDPOINT,
-    publicKey: "public_+hOK2ki/oJZ8Y4DD+zXOTSjo+fc=" || process.env.IMAGEKIT_PUBLIC_KEY,
-    privateKey: "private_dRGSOqFEHnusLGFKHL2i39Gbd7E=" || process.env.IMAGEKIT_PRIVATE_KEY
+    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
+    publicKey:  process.env.IMAGEKIT_PUBLIC_KEY,
+    privateKey: process.env.IMAGEKIT_PRIVATE_KEY
   });
   
 export const uploadAuth = async (req, res)=>{
     var result = imagekit.getAuthenticationParameters();
-     res.send(result)
+    res.send(result)
  }
 
  

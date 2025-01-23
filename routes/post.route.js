@@ -1,5 +1,4 @@
 import express from "express"
-import postModel from "../models/postModel.js"
 import {getPosts, getPost, createPost,deletePost, uploadAuth,  featurePost }from "../controllers/postController.js"
 import { increaseVisit } from "../middlewares/increaseVisit.js"
 

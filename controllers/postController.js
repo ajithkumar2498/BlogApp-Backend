@@ -66,7 +66,7 @@ export const getPosts = async(req, res)=>{
      .limit(limit)
      .skip((page-1) * limit)
 
-     const totalPosts = await postModel.countDocuments()
+     const totalPosts = await postModel.countDocuments(query)
      const hasMore = page * limit < totalPosts
 
      res.status(200).send(
@@ -106,11 +106,11 @@ export const createPost = async(req, res)=>{
      
     let counter = 2
 
-    while(existingPost){
-        slug = `${slug} - ${counter}`
-        existingPost = await postModel.findOne({slug});
-        counter++
-    }
+   while (existingPost) {
+  slug = `${req.body.title.replace(/ /g, "-").toLowerCase()}-${counter}`;
+  existingPost = await postModel.findOne({ slug });
+  counter++;
+}
 
    const newPost = new postModel({user:user._id, slug, ...req.body})
 

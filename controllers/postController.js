@@ -1,6 +1,6 @@
 import postModel from "../models/postModel.js"
 import userModel from "../models/userModel.js"
-import ImageKit from "imagekit";
+import ImageKit from "imagekit"
 
 
 export const getPosts = async(req, res)=>{

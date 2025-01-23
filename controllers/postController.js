@@ -1,7 +1,7 @@
 import postModel from "../models/postModel.js"
 import userModel from "../models/userModel.js"
-import ImageKit from "imagekit"
-import dotenv from "dotenv";
+import ImageKit from "imagekit";
+
 
 export const getPosts = async(req, res)=>{
    try {

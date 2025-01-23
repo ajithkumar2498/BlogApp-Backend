@@ -3,6 +3,13 @@ import userModel from "../models/userModel.js"
 import ImageKit from "imagekit"
 
 
+const imagekit = new ImageKit({
+    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
+    publicKey:  process.env.IMAGEKIT_PUBLIC_KEY,
+    privateKey: process.env.IMAGEKIT_PRIVATE_KEY
+  });
+
+
 export const getPosts = async(req, res)=>{
    try {
     const page = parseInt(req.query.page) || 1
@@ -197,12 +204,6 @@ export const  featurePost = async(req, res)=>{
 //     privateKey: "private_dRGSOqFEHnusLGFKHL2i39Gbd7E=" || process.env.IMAGEKIT_PRIVATE_KEY
 //   },
 // );
-
-const imagekit = new ImageKit({
-    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-    publicKey:  process.env.IMAGEKIT_PUBLIC_KEY,
-    privateKey: process.env.IMAGEKIT_PRIVATE_KEY
-  });
   
 export const uploadAuth = async (req, res)=>{
     var result = imagekit.getAuthenticationParameters();
